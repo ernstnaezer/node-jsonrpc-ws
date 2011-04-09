@@ -1,7 +1,7 @@
 node-jsonrpc-ws
 ================
 
-This module makes it easy to server JSON-RPC (v1.0) messages over web sockets.
+This module makes it easy to serve JSON-RPC (v1.0) style remote procedures over web sockets.
 
 JSON-RPC is an extremely simple communication protocol intended for remote method invocation by a client (for example a browser) and the host (the server).
 
@@ -93,14 +93,11 @@ Client side javascript
 		 }); 
 
 		 socket.on('connect', function(){ 
-			console.log("connect") 
-			
 			var rpc = new rpcClient(socket);
-			rpc.call('rpc.add', [10, 20], function(a){alert("ok!")});
+			rpc.call('rpc.add', 10, 20, function(resp){ console.log("result: " +  resp.result) )});
 	 	 });
-	
+
 		 socket.on('message', function(r){ console.log("response: " + r) }) 
-		 socket.on('disconnect', function(){console.log("disconnect") }) 
 
 		 socket.connect();
 	});
