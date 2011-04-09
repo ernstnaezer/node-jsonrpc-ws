@@ -27,6 +27,11 @@ var rpcClient = function(socket) {
 rpcClient.prototype = {
 
 	/**
+	 * Callback cleanup timeout.
+	 */
+	timeout : 5000,
+
+	/**
 	 * Calls a remote function
 	 *
 	 * @name call
@@ -63,10 +68,9 @@ rpcClient.prototype = {
 		if(req.id) {
 			this.responseHandlers[req.id] = callback
 			var self = this;
-			setTimeout(function(){
-				var idx = self.responseHandlers.indexOf(5);
-				 if(idx!=-1) self.responseHandlers.splice(idx, 1)
-			}, 5000)
+			setTimeout(function(){	
+				self.responseHandlers = Array.prototype.splice(self.responseHandlers, self.responseHandlers[req.id], 1)
+			}, this.timeout)
 		}
 		
 		this.socket.send( JSON.stringify(req) )
