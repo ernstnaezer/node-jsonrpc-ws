@@ -10,6 +10,12 @@ The request / response sequence looks something like this:
 	request:  {"id":1302294821045,"method":"rpc.add","params":[10,20]}
 	response: {"id":1302294821045,"result":30,"error":null}
 
+Credits
+-------
+
+This library is loosely based on the work of https://github.com/ericflo/node-jsonrpc and https://github.com/andris9/node-jsonrpc
+
+
 Installation
 ------------
 
