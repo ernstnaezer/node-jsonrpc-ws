@@ -15,7 +15,7 @@ Installation
 
 Simply use npm to install it
 
-  npm install jsonrpc-ws
+	npm install jsonrpc-ws
 
 or download the code from the repo and stick it in your project folder.
 
@@ -36,9 +36,11 @@ This exposes the given module with the given method prefix. So in this case the 
 
 *Function example script*
 
-   function timesTen(a) { return a * 10 }
+	function timesTen(a) { 
+		return a * 10 
+	}
 
-   rpc.expose('add', add);
+	rpc.expose('add', add);
 
 This exposes the given function under the given name . So in this case the client can call 'rpc.timesTen(2)' and the result will be 20.
 
