@@ -13,11 +13,11 @@ The request / response sequence looks something like this:
 Installation
 ------------
 
-I haven't made an npm package yet, so for now just download the code from the repo and stick it in your project folder 
+Simply use npm to install it
 
-After this, you can acquire the RPC server via
+  npm install jsonrpc-ws
 
-	var rpcServer = require('./jsonrpc-ws.js')
+or download the code from the repo and stick it in your project folder.
 
 Exposing server functions
 -------------------------

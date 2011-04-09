@@ -1,19 +1,21 @@
 {
-  "name": "json-rpc-ws",
-  "description": "json rpc library over web sockets",
-  "version": "0.0.1",
-  "author": "Ernst Naezer <ernstnaezer@gmail.com>",
-  "dependencies": {
-    "socket.io": ">= 0.6.17",
-  },
-  "keywords": ["json", "rpc", "web socket", "ws", "json-rpc"],
-  "licenses": [{
-        "type": "MIT",
-        "url": "https://github.com/enix/node-jsonrpc-ws/raw/master/README.md"
-  }],
-  "repository": {
-        "type": "git",
-        "url": "http://github.com/enix/node-jsonrpc-ws.git"
-  },
-  "engine": [ "node >= 0.1.102" ]
+    "name" : "jsonrpc-ws",
+    "version" : "0.0.1",
+    "description" : "A json rpc library over web sockets.",
+    "main" : "./index.js",
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/enix/node-jsonrpc-ws.git"
+    },
+    "dependencies" : {
+       "socket.io": ">= 0.6.17"
+    },
+    "keywords" : [
+        "rpc",
+        "web socket",
+        "json"
+    ],
+    "author" : "Ernst Naezer <ernstnaezer@gmail.com>",
+    "license" : "MIT",
+    "engine" : { "node" : ">=0.2.0" }
 }

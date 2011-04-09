@@ -61,7 +61,7 @@ rpcClient.prototype = {
 		// store the callback if needed
 		// schedule a timeout of 5 seconds to prevent memory leaks and cleanup
 		if(req.id) {
-			this.responseHandlers[cmd.id] = callback
+			this.responseHandlers[req.id] = callback
 			var self = this;
 			setTimeout(function(){
 				var idx = self.responseHandlers.indexOf(5);
@@ -69,11 +69,11 @@ rpcClient.prototype = {
 			}, 5000)
 		}
 		
-		this.socket.send( JSON.stringify(cmd) )
+		this.socket.send( JSON.stringify(req) )
 	},
 
 	_handleResponse: function(message){
 		if(message.id == null || this.responseHandlers[message.id] == null) return;
-		this.responseHandlers[message.id].callback(message);
+		this.responseHandlers[message.id](message);
 	}
 };
