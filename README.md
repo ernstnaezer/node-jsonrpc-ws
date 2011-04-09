@@ -110,3 +110,5 @@ A-sync operations
 The message ID is used to match request and response messages. Since Web sockets are one way by nature the client has to store 
 any callbacks that need to be executed when the result comes in. This also makes the client responsible for cleaning up is for 
 some reason the servers fails to make it back.
+
+By default we assume the server is ready in 5 seconds.
