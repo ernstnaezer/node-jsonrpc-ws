@@ -3,7 +3,8 @@ node-jsonrpc-ws
 
 This module makes it easy to serve JSON-RPC (v1.0) style remote procedures over web sockets.
 
-JSON-RPC is an extremely simple communication protocol intended for remote method invocation by a client (for example a browser) and the host (the server).
+JSON-RPC is an extremely simple communication protocol intended for remote method invocation by 
+a client (for example a browser) and the host (the server).
 
 The request / response sequence looks something like this:
 
@@ -13,8 +14,7 @@ The request / response sequence looks something like this:
 Credits
 -------
 
-This library is loosely based on the work of https://github.com/ericflo/node-jsonrpc and https://github.com/andris9/node-jsonrpc
-
+This library is loosely based on the work of [https://github.com/ericflo/node-jsonrpc](https://github.com/ericflo/node-jsonrpc) and [https://github.com/andris9/node-jsonrpc](https://github.com/andris9/node-jsonrpc).
 
 Installation
 ------------
@@ -46,7 +46,7 @@ This exposes the given module with the given method prefix. So in this case the 
 		return a * 10 
 	}
 
-	rpc.expose('add', add);
+	rpc.expose('timesTen', timesTen);
 
 This exposes the given function under the given name . So in this case the client can call 'rpc.timesTen(2)' and the result will be 20.
 
@@ -109,6 +109,31 @@ Client side javascript
 
 		 socket.connect();
 	});
+	
+Format
+------
+
+The JSON rpc format is really simple / lightweight and looks like this
+
+*request*
+
+	{
+	 "method": "timesTen",
+	 "params": [
+	            { "param1": 10 }
+			   ],
+	 "id": 1234
+	}
+
+*response*
+
+	{ 
+	 "result": 1000, 
+	 "error": null, 
+	 "id": "1234"
+	}
+
+For more info see [the wikipedia article](http://en.wikipedia.org/wiki/JSON-RPC)
 
 A-sync operations
 -----------------
